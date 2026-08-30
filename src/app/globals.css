@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-jetbrains: 'JetBrains Mono', monospace;
+  color-scheme: dark;
+  --bg: #020817;
+  --bg-soft: #0b1120;
+  --surface: rgba(15, 23, 42, 0.75);
+  --surface-strong: rgba(15, 23, 42, 0.95);
+  --border: rgba(148, 163, 184, 0.16);
+  --text: #e2e8f0;
+  --text-soft: #94a3b8;
+  --text-muted: #64748b;
+  --accent: #34d399;
+  --accent-strong: #22c55e;
+  --cyan: #67e8f9;
+  --blue: #60a5fa;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  @apply bg-slate-950 text-slate-100 antialiased;
+  background-image:
+    radial-gradient(circle at top, rgba(52, 211, 153, 0.09), transparent 25%),
+    radial-gradient(circle at right, rgba(96, 165, 250, 0.08), transparent 20%),
+    linear-gradient(180deg, #020817 0%, #020817 100%);
+  min-height: 100vh;
+}
+
+* {
+  @apply font-sans;
+}
+
+::selection {
+  background: rgba(52, 211, 153, 0.25);
+  color: #ecfeff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.9);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.95);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #a7f3d0 0%, #67e8f9 50%, #7dd3fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass-panel {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  backdrop-filter: blur(18px);
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60;
+}
+
+.btn-primary {
+  @apply btn bg-gradient-to-r from-emerald-400 to-cyan-400 text-slate-950 shadow-[0_14px_30px_rgba(52,211,153,0.25)];
+}
+
+.btn-secondary {
+  @apply btn border border-slate-700 bg-slate-900/70 text-slate-100 hover:border-emerald-400/40 hover:text-emerald-300;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(52, 211, 153, 0.75);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
